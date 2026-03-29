@@ -1,0 +1,233 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 终端容器 */
+.terminal {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    background-color: #000;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 终端头部 */
+.terminal-header {
+    background-color: #252525;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.terminal-title {
+    color: #d4d4d4;
+    font-size: 14px;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.control.close {
+    background-color: #ff5f56;
+}
+
+.control.minimize {
+    background-color: #ffbd2e;
+}
+
+.control.maximize {
+    background-color: #27c93f;
+}
+
+/* 终端主体 */
+.terminal-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 系统信息栏 */
+.system-info {
+    margin-bottom: 20px;
+    color: #9cdcfe;
+    font-size: 14px;
+}
+
+/* 终端输出区域 */
+.terminal-output {
+    flex: 1;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.terminal-output p {
+    margin-bottom: 10px;
+}
+
+/* 输入行 */
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.prompt {
+    color: #4ec9b0;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #d4d4d4;
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+}
+
+/* 光标 */
+.cursor {
+    width: 8px;
+    height: 16px;
+    background-color: #d4d4d4;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* 命令输出样式 */
+.command-output {
+    margin-bottom: 15px;
+}
+
+/* 文章样式 */
+.article {
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 2px solid #4ec9b0;
+}
+
+.article h1, .article h2, .article h3 {
+    color: #4ec9b0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.article p {
+    margin-bottom: 10px;
+}
+
+.article ul, .article ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.article li {
+    margin-bottom: 5px;
+}
+
+.article code {
+    background-color: #2d2d2d;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+}
+
+.article pre {
+    background-color: #2d2d2d;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+.article pre code {
+    background: none;
+    padding: 0;
+}
+
+.article a {
+    color: #4ec9b0;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+.article blockquote {
+    border-left: 4px solid #4ec9b0;
+    padding-left: 10px;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .terminal {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    .terminal-body {
+        padding: 15px;
+    }
+    
+    .system-info,
+    .terminal-output,
+    .terminal-input-line {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .terminal-body {
+        padding: 10px;
+    }
+}
